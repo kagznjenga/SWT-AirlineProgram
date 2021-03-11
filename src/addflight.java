@@ -1,4 +1,6 @@
 
+import com.toedter.calendar.JDateChooser;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -305,7 +307,7 @@ public class addflight extends javax.swing.JInternalFrame {
         return depart;
     }
 
-    public void setDepart(String depart) {
+    public void setArr(String depart) {
         this.depart = depart;
     }
 
@@ -321,9 +323,10 @@ public class addflight extends javax.swing.JInternalFrame {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(String date){
         this.date = date;
     }
+
 
     public String getDeparttime() {
         return departtime;
@@ -419,6 +422,11 @@ public class addflight extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtarrtime;
+
+    public JDateChooser getTxtdate() {
+        return txtdate;
+    }
+
     private com.toedter.calendar.JDateChooser txtdate;
     private javax.swing.JComboBox<String> txtdepart;
     private javax.swing.JTextField txtdtime;
