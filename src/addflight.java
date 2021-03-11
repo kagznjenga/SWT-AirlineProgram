@@ -259,34 +259,112 @@ public class addflight extends javax.swing.JInternalFrame {
     
     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+    String id;
+    String flightname;
+
+    String source;
+    String depart;
+
+    DateFormat da;
+    String date;
+
+
+    String departtime;
+    String arrtime;
+    String flightcharge;
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getFlightname() {
+        return flightname;
+    }
+
+    public void setFlightname(String flightname) {
+        this.flightname = flightname;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getDepart() {
+        return depart;
+    }
+
+    public void setDepart(String depart) {
+        this.depart = depart;
+    }
+
+    public DateFormat getDa() {
+        return da;
+    }
+
+    public void setDa(DateFormat da) {
+        this.da = da;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDeparttime() {
+        return departtime;
+    }
+
+    public void setDeparttime(String departtime) {
+        this.departtime = departtime;
+    }
+
+    public String getArrtime() {
+        return arrtime;
+    }
+
+    public void setArrtime(String arrtime) {
+        this.arrtime = arrtime;
+    }
+
+    public String getFlightcharge() {
+        return flightcharge;
+    }
+
+    public void setFlightcharge(String flightcharge) {
+        this.flightcharge = flightcharge;
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-           String id = txtflightid.getText();
-         String flightname = txtflightname.getText();
+         id = txtflightid.getText();
+         flightname = txtflightname.getText();
          
-         String source = txtsource.getSelectedItem().toString().trim();
-         String depart = txtdepart.getSelectedItem().toString().trim(); 
+         source = txtsource.getSelectedItem().toString().trim();
+         depart = txtdepart.getSelectedItem().toString().trim();
          
-       DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        String date = da.format(txtdate.getDate());
+         da = new SimpleDateFormat("yyyy-MM-dd");
+         date = da.format(txtdate.getDate());
 
       
-         String departtime = txtdtime.getText();
-         String arrtime = txtarrtime.getText();
-         String flightcharge = txtflightcharge.getText();
+         departtime = txtdtime.getText();
+         arrtime = txtarrtime.getText();
+         flightcharge = txtflightcharge.getText();
          
          
       
