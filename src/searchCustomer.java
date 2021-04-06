@@ -1,7 +1,7 @@
 
 
 
-import java.awt.Image;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -15,9 +15,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import com.toedter.calendar.JCalendar;
 
@@ -55,7 +53,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -242,28 +240,28 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         jButton1.setText("Browse");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                browsePicture(evt);
             }
         });
 
         jButton2.setText("Update");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                updateButton(evt);
             }
         });
 
         jButton3.setText("Cancel");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                cancelButton(evt);
             }
         });
 
         jButton4.setText("Find");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                findCustomerById(evt);
             }
         });
 
@@ -329,23 +327,52 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    String id;
+    String firstname;
+    String lastname;
+    String nic;
+    String passport;
+    String address;
 
-    
-    
-    
-    
- 
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    DateFormat da;
+    //Time txtdob;
+    String date;
+    String gender;
+
+
+    public void setTxtcustid(JTextField txtcustid) {
+        this.txtcustid = txtcustid;
+    }
+
+    public JButton getjButton4() {
+        return jButton4;
+    }
+
+    public JTextArea getTxtaddress() {
+        return txtaddress;
+    }
+    public JTextField getTxtcontact() {
+        return txtcontact;
+    }
+    public JTextField getTxtfirstname() {
+        return txtfirstname;
+    }
+    public JTextField getTxtlastname() {
+        return txtlastname;
+    }
+    public JTextField getTxtnic() {
+        return txtnic;
+    }
+    public JTextField getTxtpassport() {
+        return txtpassport;
+    }
+    public JLabel getTxtphoto() {
+        return txtphoto;
+    }
+    public JCalendar getTxtdob() {
+        return txtdob;
+    }
+
     private void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtlastnameActionPerformed
@@ -354,7 +381,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpassportActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void browsePicture(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
     
@@ -403,28 +430,30 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void updateButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-         String id = txtcustid.getText();
-         String firstname = txtfirstname.getText();
-         String lastname = txtlastname.getText();
-         String nic = txtnic.getText(); 
-        String passport = txtpassport.getText();
-         String address = txtaddress.getText();
+         id = txtcustid.getText();
+         firstname = txtfirstname.getText();
+         lastname = txtlastname.getText();
+         nic = txtnic.getText();
+         passport = txtpassport.getText();
+         address = txtaddress.getText();
         
-        DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+         da = new SimpleDateFormat("yyyy-MM-dd");
         //Time txtdob;
-        String date = da.format(txtdob.getDate());
-        String Gender;
+         date = da.format(txtdob.getDate());
+         gender = "";
+
+
         
         if(r1.isSelected())
         {
-            Gender = "Male";
+            gender = "Male";
         }
         else
         {
-            Gender = "FeMale";
+            gender = "FeMale";
         }
         
          String contact = txtcontact.getText();
@@ -441,7 +470,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
             pst.setString(4, passport);
             pst.setString(5, address);
             pst.setString(6, date);
-            pst.setString(7, Gender);
+            pst.setString(7, gender);
             pst.setString(8, contact);
             pst.setBytes(9, userimage);
              pst.setString(10, id);
@@ -468,13 +497,13 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void cancelButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void findCustomerById(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         
         String id = txtcustid.getText();
@@ -507,7 +536,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                 byte[ ]  _imagebytes=blob.getBytes( 1, (int) blob.length( ) );
                 ImageIcon image = new ImageIcon(_imagebytes);
                 Image im = image.getImage();
-                Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(),Image.SCALE_SMOOTH);
+                Image myImg = im.getScaledInstance(200, 150, Image.SCALE_SMOOTH);
                 ImageIcon newImage = new ImageIcon(myImg);
                  
                  

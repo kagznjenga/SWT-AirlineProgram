@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -83,9 +84,13 @@ class addflightTest {
             + "|^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$"
             + "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$";
     JDateChooser testingDatePicker = myFlight.getTxtdate();
-    testingDatePicker.setDate(new Date());
+    Date myDate = new Date(2010, 1, 3);
+    testingDatePicker.setDate(myDate);
+    DateFormat setFormat = myFlight.getDa();
+    myFlight.setDate(setFormat.format(testingDatePicker.getDate()));
     String dateInput = myFlight.getDate();
-    //System.out.println(testingDatePicker.toString());
+
+    System.out.println(dateInput);
     boolean testPattern = Pattern.matches(regexFormatDa, dateInput);
     try{
       assertTrue(testPattern);

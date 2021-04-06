@@ -86,7 +86,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        txtDOB = new JDateChooser();
+        dateChooser = new JDateChooser();
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 255));
 
@@ -229,7 +229,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                        .addComponent(txtDOB, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                        .addComponent(dateChooser, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
@@ -248,7 +248,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel8)
-                    .addComponent(txtDOB,
+                    .addComponent(dateChooser,
                             GroupLayout.PREFERRED_SIZE,
                             GroupLayout.DEFAULT_SIZE,
                             GroupLayout.PREFERRED_SIZE)
@@ -269,14 +269,14 @@ public class addCustomer extends javax.swing.JInternalFrame {
         jButton1.setText("Browse");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                browsePicButton(evt);
             }
         });
 
         jButton2.setText("Add");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addCustomerButton(evt);
             }
         });
 
@@ -386,15 +386,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
         
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
     private void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtlastnameActionPerformed
@@ -403,7 +397,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpassportActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void browsePicButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
     
@@ -437,46 +431,84 @@ public class addCustomer extends javax.swing.JInternalFrame {
         } catch (IOException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
         
 
-       
-       
-       
-       
-       
-       
-        
-        
-        
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    public String getId() {
+        return id;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getNic() {
+        return nic;
+    }
+
+    public String getPassport() {
+        return passport;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    String id;
+    String firstname;
+    String lastname;
+    String nic;
+    String passport;
+    String address;
+    String date;
+    String gender;
+    String contact;
+
+
+    private void addCustomerButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        String id = txtid.getText();
-         String firstname = txtfirstname.getText();
-         String lastname = txtlastname.getText();
-         String nic = txtnic.getText(); 
-        String passport = txtpassport.getText();
-         String address = txtaddress.getText();
-        JCalendar txtdob = new JCalendar();
+        id = txtid.getText();
+        firstname = txtfirstname.getText();
+        lastname = txtlastname.getText();
+        nic = txtnic.getText();
+        passport = txtpassport.getText();
+        address = txtaddress.getText();
+        JCalendar txtdob = dateChooser.getJCalendar();
         
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        String date = da.format(txtdob.getDate());
-        String Gender;
+        date = da.format(txtdob.getDate());
+        gender = "";
         
         if(r1.isSelected())
         {
-            Gender = "Male";
+            gender = "Male";
         }
         else
         {
-            Gender = "FeMale";
+            gender = "FeMale";
         }
         
-         String contact = txtcontact.getText();
+         contact = txtcontact.getText();
          
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -490,7 +522,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
             pst.setString(5, passport);
             pst.setString(6, address);
             pst.setString(7, date);
-            pst.setString(8, Gender);
+            pst.setString(8, gender);
             pst.setString(9, contact);
             pst.setBytes(10, userimage);
             pst.executeUpdate();
@@ -523,8 +555,17 @@ public class addCustomer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -539,8 +580,43 @@ public class addCustomer extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+
+    public void setR1(JRadioButton r1) {
+        this.r1 = r1;
+    }
+
     private javax.swing.JRadioButton r1;
     private javax.swing.JRadioButton r2;
+
+    public void setTxtaddress(JTextArea txtaddress) {
+        this.txtaddress = txtaddress;
+    }
+
+    public void setTxtcontact(JTextField txtcontact) {
+        this.txtcontact = txtcontact;
+    }
+
+    public void setTxtfirstname(JTextField txtfirstname) {
+        this.txtfirstname = txtfirstname;
+    }
+
+    public void setTxtlastname(JTextField txtlastname) {
+        this.txtlastname = txtlastname;
+    }
+
+    public void setTxtnic(JTextField txtnic) {
+        this.txtnic = txtnic;
+    }
+
+    public void setTxtpassport(JTextField txtpassport) {
+        this.txtpassport = txtpassport;
+    }
+
+    public void setDateChooser(JDateChooser dateChooser) {
+        this.dateChooser = dateChooser;
+    }
+
+
     private javax.swing.JTextArea txtaddress;
     private javax.swing.JTextField txtcontact;
     private javax.swing.JTextField txtfirstname;
@@ -549,6 +625,6 @@ public class addCustomer extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtnic;
     private javax.swing.JTextField txtpassport;
     private javax.swing.JLabel txtphoto;
-    private JDateChooser txtDOB;
+    private JDateChooser dateChooser;
     // End of variables declaration//GEN-END:variables
 }

@@ -270,7 +270,7 @@ public class addflight extends javax.swing.JInternalFrame {
     String source;
     String depart;
 
-    DateFormat da;
+    DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
     String date;
 
 
@@ -360,8 +360,7 @@ public class addflight extends javax.swing.JInternalFrame {
          
          source = txtsource.getSelectedItem().toString().trim();
          depart = txtdepart.getSelectedItem().toString().trim();
-         
-         da = new SimpleDateFormat("yyyy-MM-dd");
+
          date = da.format(txtdate.getDate());
 
       
