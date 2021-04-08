@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,9 +22,21 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButton(evt);
+            }
+        });
     }
+
     Connection con;
     PreparedStatement pst;
+
+    public ResultSet getRs() {
+        return rs;
+    }
+
+    ResultSet rs;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +66,7 @@ public class Login extends javax.swing.JFrame {
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginButton(evt);
             }
         });
 
@@ -121,7 +133,7 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
         String username = txtuser.getText();
@@ -141,7 +153,7 @@ public class Login extends javax.swing.JFrame {
                  pst.setString(1, username);
                  pst.setString(2, password);
                  
-                 ResultSet rs;
+
                  rs = pst.executeQuery();
                  
                  
@@ -223,12 +235,26 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+
+
+    public void setTxtpass(JPasswordField txtpass) {
+        this.txtpass = txtpass;
+    }
+
+    public void setTxtuser(JTextField txtuser) {
+        this.txtuser = txtuser;
+    }
+
     private javax.swing.JPasswordField txtpass;
     private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables

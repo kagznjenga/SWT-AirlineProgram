@@ -264,19 +264,19 @@ public class addflight extends javax.swing.JInternalFrame {
 
 
 
-    String id;
-    String flightname;
+    private String id;
+    private String flightname;
 
-    String source;
-    String depart;
+    private String source;
+    private String depart;
 
-    DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-    String date;
+    private DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+    private String date;
 
 
-    String departtime;
-    String arrtime;
-    String flightcharge;
+    private String departtime;
+    private String arrtime;
+    private String flightcharge;
 
 
     public String getId() {

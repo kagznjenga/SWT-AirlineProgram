@@ -4,11 +4,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class addflightTest {
 
@@ -19,6 +20,11 @@ class addflightTest {
 
   @AfterEach
   void tearDown() {}
+
+  @Test
+  void testFlightAddedToDB(){
+      addflight myFlight2 = mock(addflight.class);
+  }
 
   @Test
   void testIdInputWithRegex() {

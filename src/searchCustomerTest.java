@@ -3,11 +3,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
 
 class searchCustomerTest{
 
@@ -21,9 +27,9 @@ class searchCustomerTest{
 
   @Test
   void testCustomerSearchById() {
-    JTextField myCustId = new JTextField("CS002");
+    JTextField myCustId = new JTextField("CS006");
     myCustomer.setTxtcustid(myCustId);
-    myCustomer.getjButton4().doClick();
+    myCustomer.getSearchCustomer().doClick();
 
     String firstName = myCustomer.getTxtfirstname().getText();
     String lastName = myCustomer.getTxtlastname().getText();
@@ -36,14 +42,33 @@ class searchCustomerTest{
     String strDate = dateFormat.format(dob);
     //String photo = myCustomer.getTxtphoto();
     //System.out.println(lastName);
-    assertEquals("Jim", firstName);
-    assertEquals("Jones", lastName);
-    assertEquals("34324", nic);
-    assertEquals("433", passport);
-    assertEquals("Africa", address);
-    assertEquals("3432423", contact);
-    assertEquals("2019-00-14", strDate);
+    assertEquals("Charles", firstName);
+    assertEquals("Miles", lastName);
+    assertEquals("HDJ343", nic);
+    assertEquals("ABD344666", passport);
+    assertEquals("3452 sir dink blvd", address);
+    assertEquals("23456788", contact);
+    assertEquals("2021-04-08", strDate);
     //assertEquals("Jones", photo);
+  }
+
+  @Test
+  void testCustomerSearchMock() {
+    searchCustomer myCustSearchMock = mock(myCustomer.getClass());
+    //doCallRealMethod().when(myCustSearchMock).initComponents();
+    //myCustSearchMock.initComponents();
+
+    doAnswer((i) -> {
+      assertTrue("Jim".equals(i.getArguments()[0]));
+      return null;
+            }).when(myCustSearchMock).setFirstname(anyString());
+
+    when(myCustSearchMock.getFirstname()).thenReturn("Jim");
+
+    myCustSearchMock.setFirstname("Jim");
+    assertEquals("Jim", myCustSearchMock.getFirstname());
+
+    //verify(myCustSearchMock, times(1)).initComponents();
   }
 
 }

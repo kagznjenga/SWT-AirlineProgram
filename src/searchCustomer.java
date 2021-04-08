@@ -80,7 +80,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txtcustid = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        searchCustomer = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 255));
 
@@ -258,8 +258,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton4.setText("Find");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        searchCustomer.setText("Find");
+        searchCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 findCustomerById(evt);
             }
@@ -297,7 +297,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(searchCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -307,7 +307,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtcustid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(searchCustomer))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,6 +328,15 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     String id;
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
     String firstname;
     String lastname;
     String nic;
@@ -344,8 +353,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         this.txtcustid = txtcustid;
     }
 
-    public JButton getjButton4() {
-        return jButton4;
+    public JButton getSearchCustomer() {
+        return searchCustomer;
     }
 
     public JTextArea getTxtaddress() {
@@ -529,7 +538,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                  
                 String address = rs.getString("address");
                  String dob = rs.getString("dob");
-                 Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(dob);
+                 Date date1 = new SimpleDateFormat("yyyy-mm-dd").parse(dob);
                  String gender =rs.getString("gender");
                  
                 Blob blob = rs.getBlob("photo");
@@ -571,12 +580,12 @@ public class searchCustomer extends javax.swing.JInternalFrame {
               
                   
                  
-                 
+
                 
                 
             }
-                    
-            
+
+
             
             
             
@@ -591,11 +600,11 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         } catch (ParseException ex) {
             Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-          
-        
-        
-        
-        
+
+
+
+
+
         
         
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -605,7 +614,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton searchCustomer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
