@@ -3,10 +3,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -54,7 +50,7 @@ class searchCustomerTest{
 
   @Test
   void testCustomerSearchMock() {
-    searchCustomer myCustSearchMock = mock(myCustomer.getClass());
+    searchCustomer myCustSearchMock = mock(searchCustomer.class);
     //doCallRealMethod().when(myCustSearchMock).initComponents();
     //myCustSearchMock.initComponents();
 
