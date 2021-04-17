@@ -9,7 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -256,21 +256,34 @@ public class userCreation extends javax.swing.JInternalFrame {
     
     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public JLabel getTxtuserid() {
+        return txtuserid;
+    }
+
+    public JTextField getTxtfirstname() {
+        return txtfirstname;
+    }
+
+    public JTextField getTxtlastname() {
+        return txtlastname;
+    }
+
+    public JPasswordField getTxtpassword() {
+        return txtpassword;
+    }
+
+    public JTextField getTxtusername() {
+        return txtusername;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
