@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 
-
+/**
+ * Class: Main.java
+ * Purpose: Main Menu of the software. 
+ * Functionality to the Buttons to navigate the software. 
+ */
 public class Main extends javax.swing.JFrame {
 
     /**
@@ -21,6 +25,10 @@ public class Main extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
+    /**
+    * Method that gives functionality to the buttons.
+    */
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -130,6 +138,9 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * method that allows user to add a customer. 
+    */
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         
@@ -139,6 +150,9 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    /**
+    * Method that allows user to search for a Customer in the system. 
+    */
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         
@@ -149,6 +163,9 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    /**
+    * Method that allows user to add a flight
+    */
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         addflight f = new addflight();
@@ -157,6 +174,9 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    /**
+    * Method that allows user to view a ticket
+    */
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
          ticket t = new ticket();
@@ -165,6 +185,9 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    /**
+    * Method that allows user to view a ticket report. 
+    */
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
         
@@ -175,6 +198,9 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    /**
+    * Method that allows a user to be created and added to the database. 
+    */
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         
