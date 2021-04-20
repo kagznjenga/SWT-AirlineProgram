@@ -14,7 +14,11 @@ import javax.swing.*;
  * and open the template in the editor.
  */
 
-
+/**
+ * Class: Login.java
+ * Purpose: Allows a user to login into the software. 
+ * The database will check if credentials are correct. 
+ */
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -133,6 +137,11 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method that allows a user to click the login button and log into the system
+     * If credentials are incorrect or blank, an error message will appear.
+     * If credentials are correct, will allow access to software. 
+    */
     private void loginButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
