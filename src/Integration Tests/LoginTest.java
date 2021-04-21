@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+//import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.fest.swing.fixture.FrameFixture;
 
 import javax.swing.*;
 
@@ -14,7 +17,10 @@ class LoginTest {
   Login myLogin = new Login();
 
   @BeforeEach
-  void setUp() {}
+  void setUp() {
+    FrameFixture window = new FrameFixture(new Main());
+    window.show();
+  }
 
   @AfterEach
   void tearDown() {}
@@ -33,4 +39,15 @@ class LoginTest {
 
     assertFalse(myResult.next());
   }
+
+  @Test
+  void testGUI(){
+//    System.setProperty("webdriver.gecko.driver", "C:\\Users\\kagwi\\OneDrive - Florida Gulf Coast University\\Spring 2021\\Software Testing\\geckodriver-v0.29.1-win64\\geckodriver.exe");
+//    WebDriver driver1 = new FirefoxDriver();
+//    driver1.getWindowHandle();
+    //assertTrue(driver1.getTitle().startsWith("google"));
+
+
+  }
+
 }

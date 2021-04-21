@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
+import java.io.Console;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.regex.Pattern;
@@ -57,6 +58,8 @@ class addCustomerTest {
     assertEquals("2021-04-08", myCustomer.getDate());
     assertEquals("Male", myCustomer.getGender());
     assertEquals("23456788", myCustomer.getContact());
+
+    System.out.println("Customer has been added successfully");
   }
 
 

@@ -46,13 +46,13 @@ class searchCustomerTest{
     assertEquals("23456788", contact);
     assertEquals("2021-04-08", strDate);
     //assertEquals("Jones", photo);
+
+    System.out.println("Customer search returned successfully");
   }
 
   @Test
   void testCustomerSearchMock() {
     searchCustomer myCustSearchMock = mock(searchCustomer.class);
-    //doCallRealMethod().when(myCustSearchMock).initComponents();
-    //myCustSearchMock.initComponents();
 
     doAnswer((i) -> {
       assertTrue("Jim".equals(i.getArguments()[0]));
@@ -64,7 +64,7 @@ class searchCustomerTest{
     myCustSearchMock.setFirstname("Jim");
     assertEquals("Jim", myCustSearchMock.getFirstname());
 
-    //verify(myCustSearchMock, times(1)).initComponents();
+    System.out.println("Mock Interaction tested successfully");
   }
 
 }
