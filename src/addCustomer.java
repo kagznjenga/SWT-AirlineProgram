@@ -31,7 +31,10 @@ import com.toedter.calendar.JDateChooser;
  * and open the template in the editor.
  */
 
-
+/**
+ * Class: addCustomer.java
+ * Purpose: Allows the user to add a Customer into the system. 
+ */
 public class addCustomer extends javax.swing.JInternalFrame {
 
     /**
@@ -42,7 +45,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         autoID();
     }
     
-   Connection con;
+   Connection con; //database connection
     PreparedStatement pst;
     
     String path=null;
@@ -350,7 +353,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
     
     
     
- 
+    /**
+    * Method that automatically assigns an ID to a user. 
+    */
     
     public void autoID()
     {
@@ -397,6 +402,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpassportActionPerformed
 
+    /**
+     * Method that allows the user to upload a picture to their profile.
+    */
     private void browsePicButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
@@ -437,6 +445,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+    * Get and Set methods for: ID, Firstname, Lastname, Nic, Passport, Address, Date, Gender, and Contact
+    */
     public String getId() {
         return id;
     }
@@ -520,6 +531,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
     String contact;
 
 
+    /**
+     * Method that allows a user to enter a customer's information and add it to the database. 
+    */
     private void addCustomerButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
