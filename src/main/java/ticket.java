@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -672,6 +672,81 @@ public class ticket extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public JButton getjButton3() {
+        return jButton3;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JLabel getFlightno() {
+        return flightno;
+    }
+
+    public JButton getjButton4() {
+        return jButton4;
+    }
+
+    public JLabel getFlightname() {
+        return flightname;
+    }
+
+    public JLabel getTxttotal() {
+        return txttotal;
+    }
+
+    public JSpinner getTxtseats() {
+        return txtseats;
+    }
+
+    public JLabel getTxtticketno() {
+        return txtticketno;
+    }
+
+    public JLabel getTxtpassport() {
+        return txtpassport;
+    }
+
+    public JLabel getTxtlastname() {
+        return txtlastname;
+    }
+
+    public JLabel getTxtfirstname() {
+        return txtfirstname;
+    }
+
+    public JLabel getTxtdept() {
+        return txtdept;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public JTextField getTxtprice() {
+        return txtprice;
+    }
+
+    public JComboBox<String> getTxtdepart() {
+        return txtdepart;
+    }
+
+    public JComboBox<String> getTxtsource() {
+        return txtsource;
+    }
+
+    public JTextField getTxtcustid() {
+        return txtcustid;
+    }
+
+    public JComboBox<String> getTxtclass() {
+        return txtclass;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel flightname;
