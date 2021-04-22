@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class ticketreport extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ticketreport
+     * Creates Ticket Reports 
      */
     public ticketreport() {
         initComponents();
