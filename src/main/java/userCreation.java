@@ -21,7 +21,7 @@ import javax.swing.*;
 public class userCreation extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form userCreation
+     * Creates new Users
      */
     public userCreation() {
         initComponents();
