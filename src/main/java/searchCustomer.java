@@ -29,7 +29,7 @@ import com.toedter.calendar.JCalendar;
 public class searchCustomer extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form addCustomer
+     *  Search Customer 
      */
     public searchCustomer() {
         initComponents();
