@@ -1,29 +1,19 @@
-import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
-import com.mysql.cj.xdevapi.Table;
-import com.toedter.calendar.JCalendar;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
 import java.awt.event.MouseEvent;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ticketUnitTest {
+class ticketTest {
 
   ticket test;
   Connection con;
@@ -61,9 +51,9 @@ class ticketUnitTest {
     boolean isFound = false;
     while(rs.next()){
       if (rs.getString(1).equals(ticketid) && rs.getString(2).equals(flightid)
-      && rs.getString(3).equals(custid) && rs.getString(4).equals(flightclass) &&
-      rs.getString(5).equals(price) && rs.getString(6).equals(seats) &&
-      rs.getString(7).equals(date)){
+              && rs.getString(3).equals(custid) && rs.getString(4).equals(flightclass) &&
+              rs.getString(5).equals(price) && rs.getString(6).equals(seats) &&
+              rs.getString(7).equals(date)){
         isFound = true;
       }
     }
@@ -151,13 +141,13 @@ class ticketUnitTest {
       PreparedStatement preparedStatement = con.prepareStatement("insert into ticket (id, flightid, custid, class, price, seats, date) values (?,?,?,?,?,?,?)");
       System.out.println(row);
       preparedStatement.setString(1, Df.getValueAt(row,0).toString());
-        preparedStatement.setString(2, Df.getValueAt(row,1).toString());
-        preparedStatement.setString(3, Df.getValueAt(row,2).toString());
-        preparedStatement.setString(4,Df.getValueAt(row,3).toString());
-        preparedStatement.setInt(5, Integer.parseInt(Df.getValueAt(row,4).toString()));
-        preparedStatement.setInt(6, Integer.parseInt(Df.getValueAt(row,5).toString()));
-        preparedStatement.setString(7, Df.getValueAt(row,6).toString());
-        preparedStatement.execute();
+      preparedStatement.setString(2, Df.getValueAt(row,1).toString());
+      preparedStatement.setString(3, Df.getValueAt(row,2).toString());
+      preparedStatement.setString(4,Df.getValueAt(row,3).toString());
+      preparedStatement.setInt(5, Integer.parseInt(Df.getValueAt(row,4).toString()));
+      preparedStatement.setInt(6, Integer.parseInt(Df.getValueAt(row,5).toString()));
+      preparedStatement.setString(7, Df.getValueAt(row,6).toString());
+      preparedStatement.execute();
 
     }
     assertEquals("TO001",test.getTxtticketno().getText());

@@ -3,23 +3,38 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.table.DefaultTableModel;
+import java.io.InputStream;
+import java.sql.*;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Vector;
 import java.util.regex.Pattern;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class addflightUnitTest {
+class addflightTest {
 
   addflight myFlight = new addflight();
+  Connection con;
 
   @BeforeEach
-  void setUp() {}
+  void setUp() throws SQLException {
+    myFlight = new addflight();
+    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airlinedb","DBManager","1234");
+  }
 
   @AfterEach
-  void tearDown() {}
+  void tearDown() throws SQLException {
+    con.close();
+    myFlight.dispose();
+  }
 
   @Test
   void testFlightAddedToDB(){
@@ -132,5 +147,100 @@ class addflightUnitTest {
     catch (AssertionError e) {
       System.out.println("Wrong Input please input correct values");
     }
+  }
+
+  @Test
+  public void testAutoId() throws SQLException {
+    PreparedStatement pst = con.prepareStatement("select * from flight");
+    ResultSet rs = pst.executeQuery();
+    ResultSetMetaData rsm = rs.getMetaData();
+    DefaultTableModel Df = new DefaultTableModel();
+    String columns[] = {"", "", "", "", "", "", "", ""};
+    for (String s : columns) {
+      Df.addColumn(s);
+    }
+    while (rs.next()) {
+      Vector v2 = new Vector();
+      v2.add(rs.getString(1));
+      v2.add(rs.getString(2));
+      v2.add(rs.getString(3));
+      v2.add(rs.getString(4));
+      v2.add(rs.getString(5));
+      v2.add(rs.getString(6));
+      v2.add(rs.getString(7));
+      v2.add(rs.getString(8));
+      Df.addRow(v2);
+    }
+    pst = con.prepareStatement("DELETE FROM flight");
+    pst.execute();
+    int rows = Df.getRowCount();
+    System.out.println(Df.getRowCount());
+    System.out.println(Df.getColumnCount());
+    myFlight.autoID();
+    myFlight.autoID();
+
+    pst.close();
+    for (int row = 0; row < rows; row++) {
+      PreparedStatement preparedStatement = con.prepareStatement("insert into flight values (?,?,?,?,?,?,?,?)");
+      System.out.println(row);
+      preparedStatement.setString(1, Df.getValueAt(row, 0).toString());
+      preparedStatement.setString(2, Df.getValueAt(row, 1).toString());
+      preparedStatement.setString(3, Df.getValueAt(row, 2).toString());
+      preparedStatement.setString(4, Df.getValueAt(row, 3).toString());
+      preparedStatement.setString(5, Df.getValueAt(row, 4).toString());
+      preparedStatement.setString(6, Df.getValueAt(row, 5).toString());
+      preparedStatement.setString(7, Df.getValueAt(row, 6).toString());
+      preparedStatement.setString(8, Df.getValueAt(row, 7).toString());
+      preparedStatement.execute();
+
+    }
+    assertEquals("FO001", myFlight.getTxtflightid().getText());
+  }
+
+
+    @Test
+  public void testJbutton1() throws SQLException {
+    String id = "TI001";
+    String flightname = "test";
+
+    String source = "India";
+    String depart = "India";
+
+    Date date = new Date(2017,6,7);
+
+
+    String departtime = "7:00PM";
+    String arrtime = "8:00PM";
+    String flightcharge = "100";
+    myFlight.getTxtflightid().setText(id);
+    myFlight.getTxtflightname().setText(flightname);
+    myFlight.getTxtsource().setSelectedItem(source);
+    myFlight.getTxtdepart().setSelectedItem(depart);
+    myFlight.getTxtDate().setDate(date);
+    myFlight.getTxtdtime().setText(departtime);
+    myFlight.getTxtarrtime().setText(arrtime);
+    myFlight.getTxtflightcharge().setText(flightcharge);
+    myFlight.getjButton1().doClick();
+    PreparedStatement ps = con.prepareStatement("select * from flight where id = ?");
+    ps.setString(1,id);
+    ResultSet rs = ps.executeQuery();
+    DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+    boolean found = false;
+    myFlight.getjButton2().doClick();
+    while(rs.next()){
+      if(rs.getString(1).equals(id) &&
+              rs.getString(2).equals(flightname) &&
+              rs.getString(3).equals(source) &&
+              rs.getString(4).equals(depart) &&
+              rs.getString(5).equals(da.format(date)) &&
+              rs.getString(6).equals(departtime) &&
+              rs.getString(7).equals(arrtime) &&
+              rs.getString(8).equals(flightcharge)
+      ){
+        found = true;
+        break;
+      }
+    }
+    assertTrue(found);
   }
 }
