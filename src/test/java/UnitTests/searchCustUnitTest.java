@@ -3,50 +3,83 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
-class searchCustUnitTest {
+class searchCustUnitTest{
 
-  searchCustomer myCustomer = new searchCustomer();
+  searchCustomer myCustomer;
+  Connection con;
 
   @BeforeEach
-  void setUp() {}
+  void setUp() throws SQLException {
+    myCustomer = new searchCustomer();
+    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airlinedb","DBManager","1234");
+  }
 
   @AfterEach
-  void tearDown() {}
+  void tearDown() throws SQLException {
+    myCustomer.dispose();
+    con.close();
+  }
 
   @Test
-  void testCustomerSearchById() {
-    JTextField myCustId = new JTextField("CS006");
-    myCustomer.setTxtcustid(myCustId);
-    myCustomer.getSearchCustomer().doClick();
+  void testImageBrowser(){
+    myCustomer.getjButton1().doClick();
+    try {
+      assertNotEquals(null, myCustomer.getTxtphoto().getIcon());
+    } catch (Exception e){
+      assertTrue(false);
+    }
+  }
 
-    String firstName = myCustomer.getTxtfirstname().getText();
-    String lastName = myCustomer.getTxtlastname().getText();
-    String nic = myCustomer.getTxtnic().getText();
-    String passport = myCustomer.getTxtpassport().getText();
-    String address = myCustomer.getTxtaddress().getText();
-    String contact = myCustomer.getTxtcontact().getText();
-    Date dob = (myCustomer.getTxtdob().getDate());
-    DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-    String strDate = dateFormat.format(dob);
-    //String photo = myCustomer.getTxtphoto();
-    //System.out.println(lastName);
-    assertEquals("Charles", firstName);
-    assertEquals("Miles", lastName);
-    assertEquals("HDJ343", nic);
-    assertEquals("ABD344666", passport);
-    assertEquals("3452 sir dink blvd", address);
-    assertEquals("23456788", contact);
-    assertEquals("2021-04-08", strDate);
-    //assertEquals("Jones", photo);
+  @Test
+  void testUpdateButton() throws SQLException {
+    String id = "CS001";
+    String firstname = "joe";
+    String lastname = "doe";
+    String nic = "123456789";
+    String passport = "1234";
+    String address = "USA";
 
-    System.out.println("Customer search returned successfully");
+    SimpleDateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+    Date date = new Date(1998,06,1);
+    String expectedDate = da.format(date);
+    String gender = "Male";
+    String contact = "1234567890";
+    myCustomer.getTxtcustid().setText(id);
+    myCustomer.getTxtfirstname().setText(firstname);
+    myCustomer.getTxtlastname().setText(lastname);
+    myCustomer.getTxtnic().setText(nic);
+    myCustomer.getTxtpassport().setText(passport);
+    myCustomer.getTxtaddress().setText(address);
+    myCustomer.getTxtdob().setDate(date);
+    myCustomer.getR1().setSelected(true);
+    myCustomer.getTxtcontact().setText(contact);
+    myCustomer.getjButton2().doClick();
+    PreparedStatement ps = con.prepareStatement("Select * from customer where id = ?");
+    ps.setString(1,id);
+    boolean found = false;
+    ResultSet rs = ps.executeQuery();
+    while(rs.next()){
+      if ( rs.getString(1).equals(id)
+              && rs.getString(2).equals(firstname)
+              && rs.getString(3).equals(lastname)
+              && rs.getString(4).equals(nic)
+              && rs.getString(5).equals(passport)
+              && rs.getString(6).equals(address)
+              && rs.getString(7).equals(expectedDate)
+              && rs.getString(8).equals(gender)
+              && rs.getString(9).equals(contact)){
+        found = true;
+      }
+    }
+    assertTrue(found);
   }
 
 }
