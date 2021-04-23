@@ -1,4 +1,5 @@
 
+
 import com.toedter.calendar.JDateChooser;
 
 import java.sql.Connection;
@@ -11,7 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -278,7 +279,6 @@ public class addflight extends javax.swing.JInternalFrame {
     private String arrtime;
     private String flightcharge;
 
-
     public String getId() {
         return id;
     }
@@ -352,6 +352,13 @@ public class addflight extends javax.swing.JInternalFrame {
         this.flightcharge = flightcharge;
     }
 
+    public JButton getjButton1() {
+        return jButton1;
+    }
+    public JDateChooser getTxtDate(){
+        return txtdate;
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
@@ -407,6 +414,37 @@ public class addflight extends javax.swing.JInternalFrame {
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public JComboBox<String> getTxtsource() {
+        return txtsource;
+    }
+
+    public JComboBox<String> getTxtdepart() {
+        return txtdepart;
+    }
+
+    public JLabel getTxtflightid() {
+        return txtflightid;
+    }
+
+    public JTextField getTxtarrtime() {
+        return txtarrtime;
+    }
+
+    public JTextField getTxtdtime() {
+        return txtdtime;
+    }
+
+    public JTextField getTxtflightcharge() {
+        return txtflightcharge;
+    }
+
+    public JTextField getTxtflightname() {
+        return txtflightname;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

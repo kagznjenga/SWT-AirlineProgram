@@ -29,7 +29,7 @@ import com.toedter.calendar.JCalendar;
 public class searchCustomer extends javax.swing.JInternalFrame {
 
     /**
-     *  Search Customer 
+     * Creates new form addCustomer
      */
     public searchCustomer() {
         initComponents();
@@ -609,6 +609,25 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public JTextField getTxtcustid() {
+        return txtcustid;
+    }
+
+    public JRadioButton getR1() {
+        return r1;
+    }
+
+    public JRadioButton getR2() {
+        return r2;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

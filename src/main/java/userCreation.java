@@ -1,4 +1,5 @@
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,7 +22,7 @@ import javax.swing.*;
 public class userCreation extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new Users
+     * Creates new form userCreation
      */
     public userCreation() {
         initComponents();

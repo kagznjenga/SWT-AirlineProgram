@@ -1,6 +1,4 @@
 
-
-
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -604,6 +602,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    public JButton getjButton3() {
+        return jButton3;
+    }
 
     public JButton getBrowsePic() {
         return browsePic;
@@ -614,6 +615,18 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
     public JButton getAddCustomer() {
         return addCustomer;
+    }
+
+    public JTextField getTxtlastname() {
+        return txtlastname;
+    }
+
+    public JTextField getTxtpassport() {
+        return txtpassport;
+    }
+
+    public JLabel getTxtid() {
+        return txtid;
     }
 
     private javax.swing.JButton addCustomer;
@@ -634,6 +647,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
     public void setR1(JRadioButton r1) {
         this.r1 = r1;
     }
+    public void setR2(JRadioButton r2) { this.r2 = r2; }
 
     private javax.swing.JRadioButton r1;
     private javax.swing.JRadioButton r2;

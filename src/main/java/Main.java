@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+
 /**
  * Class: Main.java
  * Purpose: Main Menu of the software. 
@@ -244,6 +246,34 @@ public class Main extends javax.swing.JFrame {
                 new Main().setVisible(true);
             }
         });
+    }
+
+    public JMenuItem getjMenuItem1() {
+        return jMenuItem1;
+    }
+
+    public JDesktopPane getjDesktopPane1() {
+        return jDesktopPane1;
+    }
+
+    public JMenuItem getjMenuItem2() {
+        return jMenuItem2;
+    }
+
+    public JMenuItem getjMenuItem3() {
+        return jMenuItem3;
+    }
+
+    public JMenuItem getjMenuItem4() {
+        return jMenuItem4;
+    }
+
+    public JMenuItem getjMenuItem5() {
+        return jMenuItem5;
+    }
+
+    public JMenuItem getjMenuItem6() {
+        return jMenuItem6;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

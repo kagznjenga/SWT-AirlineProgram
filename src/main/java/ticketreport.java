@@ -1,4 +1,5 @@
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -20,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class ticketreport extends javax.swing.JInternalFrame {
 
     /**
-     * Creates Ticket Reports 
+     * Creates new form ticketreport
      */
     public ticketreport() {
         initComponents();
@@ -143,20 +145,15 @@ PreparedStatement pst;
         
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
